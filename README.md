@@ -6,10 +6,24 @@ Simple CRUD using [Nest](https://github.com/nestjs/nest) to explore the framewor
 
 ## Installation
 
-<!-- You will need a POSTGRES database running. A optional docker-compose file is provided, but you need to have [Docker](https://www.docker.com/get-started) installed. -->
-
 ```bash
 $ npm install
+```
+
+You must have a postgres running in your machine. The default values for database name, user and password could be find in `./src/config/typeorm.config.ts` file.
+
+An optional `./docker-compose.yml` file is provided to easily up and run a postgres instance, but you need to have [Docker](https://www.docker.com/get-started) installed.
+
+To run a postgres from a docker-compose file, first create a docker volume
+
+```bash
+docker volume create postgres
+```
+
+Then
+
+```bash
+docker-compose up
 ```
 
 ## Running the app
