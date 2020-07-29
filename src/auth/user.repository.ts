@@ -2,6 +2,7 @@ import { Repository, EntityRepository } from 'typeorm';
 import { User } from './user.entity';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import { ConflictException, InternalServerErrorException } from '@nestjs/common';
+import * as bcrypt from 'bcrypt'; 
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
@@ -10,7 +11,7 @@ export class UserRepository extends Repository<User> {
 
     const user = new User();
     user.userName = username;
-    user.password = password;
+    user.password = await this.hashPassword(password);
 
     try {
       await user.save();      
@@ -22,5 +23,14 @@ export class UserRepository extends Repository<User> {
       }
     }
 
+  }
+
+  private async hashPassword(plainTextPassword: string): Promise<string> {
+    // TODO: refactor - move to a commons lib
+    const saltRounds: number = 11;
+    const salt: string = await bcrypt.genSalt(saltRounds);
+
+    const hashPassword: string = await bcrypt.hash(plainTextPassword, salt);
+    return hashPassword
   }
 }
