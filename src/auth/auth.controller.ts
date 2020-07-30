@@ -22,9 +22,9 @@ export class AuthController {
     return this.authService.signIn(authCredentialsDto);
   }
 
-  @Post('/test')
-  @UseGuards(AuthGuard())
-  test(@GetUser() user: User) {
-    console.log(user);
-  }
+  // @Post('/test') // testing guards
+  // @UseGuards(AuthGuard())
+  // test(@GetUser() user: User) {
+  //   console.log(user);
+  // }
 }
