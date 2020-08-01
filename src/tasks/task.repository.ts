@@ -7,7 +7,7 @@ import { Logger, InternalServerErrorException } from '@nestjs/common';
 
 @EntityRepository(Task)
 export class TaskRepository extends Repository<Task> {
-  private logger = new Logger('TasksController');
+  private logger = new Logger('TasksRepository');
 
   async getTasks(
     filterDto: GetTasksFilteredDto,
