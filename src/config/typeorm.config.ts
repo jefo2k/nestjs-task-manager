@@ -9,5 +9,5 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   database: 'taskmanager',
   entities: [__dirname + '/../**/*.entity.{js,ts}'],
   synchronize: true,
-  logging: ["query", "error"]
+  logging: ["error"] // "query", "error"
 }
