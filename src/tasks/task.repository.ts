@@ -1,4 +1,4 @@
-import { Repository, EntityRepository, QueryBuilder } from "typeorm";
+import { Repository, EntityRepository } from "typeorm";
 import { Task, TaskStatus } from './task.entity';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { GetTasksFilteredDto } from './dto/get-tasks-filtered.dto';
